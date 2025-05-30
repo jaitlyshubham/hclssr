@@ -19,7 +19,7 @@ namespace HClHackactnWithAngular.Server
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            builder.Services.AddSingleton<IUserDAL,UserDAL>();
+            builder.Services.AddTransient<IUserDAL,UserDAL>();
             var app = builder.Build();
 
             app.UseDefaultFiles();

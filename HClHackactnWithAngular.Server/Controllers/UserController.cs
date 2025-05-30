@@ -1,4 +1,5 @@
 ﻿using HClHackactnWithAngular.Repositories.Entities;
+using HClHackactnWithAngular.Server.Model;
 using HClHackactnWithAngular.Services.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,6 +28,34 @@ namespace HClHackactnWithAngular.Server.Controllers
         public async Task<List<User>> GetUsers()
         {
             return await userDAL.GetUsers();
+        }
+
+        [Route("Add")]
+        [HttpPost]
+        public async Task<bool> Add([FromBody] CreateUserDto dto)
+        {
+            var user = new User
+            {
+                Username = dto.Username,
+                PasswordHash = dto.PasswordHash,
+                Role = dto.Role,
+                UserData = dto.UserData != null
+                    ? new UserData
+                    {
+                        FirstName = dto.UserData.FirstName,
+                        LastName = dto.UserData.LastName,
+                        StaffRole = dto.UserData.StaffRole,
+                        Department = dto.UserData.Department,
+                        Email = dto.UserData.Email,
+                        PhoneNumber = dto.UserData.PhoneNumber,
+                        WeeklyShiftLimit = dto.UserData.WeeklyShiftLimit,
+                        HireDate = dto.UserData.HireDate,
+                        IsActive = dto.UserData.IsActive
+                    }
+                    : null
+            };
+
+            return await userDAL.AddUsers(user);
         }
 
     }

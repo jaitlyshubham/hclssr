@@ -14,7 +14,7 @@ namespace HClHackactnWithAngular.Repositories.Entities
         public string Role { get; set; } // "Admin" or "Staff"
 
         // Navigation property
-        public ICollection<UserData> UserData { get; set; }
+        public UserData UserData { get; set; }
         public ICollection<StaffAssignment> StaffAssignments { get; set; }
     }
 }

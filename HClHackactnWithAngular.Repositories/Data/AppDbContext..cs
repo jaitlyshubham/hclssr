@@ -21,10 +21,10 @@ namespace HClHackactnWithAngular.Repositories.Data
             // Configure entity relationships and constraints
 
             // User to UserData (one-to-one)
-            modelBuilder.Entity<UserData>()
-                .HasOne(ud => ud.User)
-                .WithMany(u => u.UserData)
-                .HasForeignKey(ud => ud.UserId)
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.UserData)
+                .WithOne(ud => ud.User)
+                .HasForeignKey<UserData>(ud => ud.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // One-to-many: User to StaffAssignment

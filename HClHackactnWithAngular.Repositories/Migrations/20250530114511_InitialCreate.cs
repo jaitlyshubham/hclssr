@@ -161,7 +161,8 @@ namespace HClHackactnWithAngular.Repositories.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_UserData_UserId",
                 table: "UserData",
-                column: "UserId");
+                column: "UserId",
+                unique: true);
         }
 
         /// <inheritdoc />

@@ -237,7 +237,8 @@ namespace HClHackactnWithAngular.Repositories.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("UserData");
                 });
@@ -275,8 +276,8 @@ namespace HClHackactnWithAngular.Repositories.Migrations
             modelBuilder.Entity("HClHackactnWithAngular.Repositories.Entities.UserData", b =>
                 {
                     b.HasOne("HClHackactnWithAngular.Repositories.Entities.User", "User")
-                        .WithMany("UserData")
-                        .HasForeignKey("UserId")
+                        .WithOne("UserData")
+                        .HasForeignKey("HClHackactnWithAngular.Repositories.Entities.UserData", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -298,7 +299,8 @@ namespace HClHackactnWithAngular.Repositories.Migrations
                 {
                     b.Navigation("StaffAssignments");
 
-                    b.Navigation("UserData");
+                    b.Navigation("UserData")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
