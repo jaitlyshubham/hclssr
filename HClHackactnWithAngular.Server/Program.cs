@@ -1,5 +1,6 @@
 
 using HClHackactnWithAngular.Repositories.Data;
+using HClHackactnWithAngular.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace HClHackactnWithAngular.Server
@@ -18,7 +19,7 @@ namespace HClHackactnWithAngular.Server
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+            builder.Services.AddSingleton<IUserDAL,UserDAL>();
             var app = builder.Build();
 
             app.UseDefaultFiles();
