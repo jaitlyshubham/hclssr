@@ -1,0 +1,23 @@
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 login-box">
+      <h3 class="text-center">Login</h3>
+      <form>
+        <div class="form-group">
+          <label for="email">Username</label>
+          <input type="text" formCot class="form-control" formControlName="userName" placeholder="Enter UserName">
+          <span class="text-danger" *ngIf="(submit) && (getFormControl('userName')?.hasError('required'))">Please enter  username.</span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
+          <span class="text-danger" *ngIf="(submit) && (getFormControl('password')?.hasError('required'))">Please enter  username.</span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+        <div class="text-center" style="margin-top: 10px;">
+          <a href="#">Forgot password?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
