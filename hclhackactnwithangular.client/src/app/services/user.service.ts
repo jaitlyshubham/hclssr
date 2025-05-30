@@ -7,15 +7,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  myAppUrl: string = "https://localhost:7176/api/student/";
-  constructor(private _http: HttpClient) {
+  myAppUrl: string = "https://localhost:7176/api/user/";
 
-  }
+  constructor(private _http: HttpClient) { }
 
   getUsers(): Observable<any> {
     return this._http.get<any>(this.myAppUrl + 'GetList').pipe(map((data) => {
       return data;
     }))
+  }
+
+  getUser(id: number): Observable<any> {
+    return this._http.get<any>(`${this.myAppUrl}Get?id=${id}`);
   }
 
 }
