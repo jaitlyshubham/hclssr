@@ -3,17 +3,12 @@ using HClHackactnWithAngular.Repositories.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
 
-namespace HClHackactnWithAngular.Services
+namespace HClHackactnWithAngular.Services.Services
 {
-    public interface IUserDAL
-    {
-        Task<List<User>> GetUsers();
-        Task<bool> AddUsers(User user);
-        Task<User> GetUser(int id);
-    }
     public class UserDAL: IUserDAL
     {
         public readonly AppDbContext _dbContext;
+
         public UserDAL(AppDbContext dbContext)
         {
             _dbContext = dbContext;

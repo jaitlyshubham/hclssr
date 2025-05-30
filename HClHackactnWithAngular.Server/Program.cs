@@ -1,6 +1,6 @@
 
 using HClHackactnWithAngular.Repositories.Data;
-using HClHackactnWithAngular.Services;
+using HClHackactnWithAngular.Services.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace HClHackactnWithAngular.Server
