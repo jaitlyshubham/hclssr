@@ -1,0 +1,6 @@
+@HClHackactnWithAngular.Server_HostAddress = http://localhost:5257
+
+GET {{HClHackactnWithAngular.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
